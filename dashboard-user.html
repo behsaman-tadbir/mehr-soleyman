@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>داشبورد کاربر | مهر سلیمان</title>
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+
+  <script>
+    if (localStorage.getItem("loggedIn") !== "true" ||
+        localStorage.getItem("role") !== "user") {
+      window.location.href = "login.html";
+    }
+  </script>
+</head>
+
+<body class="dashboard-body">
+
+<div class="dashboard">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">مهر سلیمان</div>
+    <ul class="sidebar-menu">
+      <li class="active">داشبورد</li>
+      <li>دوره‌های من</li>
+      <li>کلاس آنلاین</li>
+      <li>آزمون‌ها</li>
+      <li>پرداخت‌ها</li>
+      <li onclick="logout()">خروج</li>
+    </ul>
+  </aside>
+
+  <!-- Main -->
+  <main class="dashboard-main">
+
+    <header class="dashboard-header">
+      <div>
+        <h1>سلام 👋</h1>
+        <span class="subtitle">به پنل کاربری مهر سلیمان خوش آمدید</span>
+      </div>
+    </header>
+
+    <!-- Stats -->
+    <section class="stats">
+      <div class="stat-card">
+        <h3>دوره‌های فعال</h3>
+        <span>۳</span>
+      </div>
+      <div class="stat-card">
+        <h3>آزمون‌های پیش‌رو</h3>
+        <span>۱</span>
+      </div>
+      <div class="stat-card">
+        <h3>وضعیت پرداخت</h3>
+        <span>اقساطی</span>
+      </div>
+    </section>
+
+    <!-- Courses -->
+    <section class="panel">
+      <h2>دوره‌های ثبت‌نام‌شده</h2>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>نام دوره</th>
+            <th>وضعیت</th>
+            <th>ورود</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>آموزش مهارت‌های دیجیتال</td>
+            <td><span class="badge success">فعال</span></td>
+            <td><button class="btn-sm">ورود</button></td>
+          </tr>
+          <tr>
+            <td>کلاس تقویتی ریاضی</td>
+            <td><span class="badge warning">در انتظار</span></td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Notifications -->
+    <section class="panel">
+      <h2>اعلان‌ها</h2>
+      <ul class="notifications">
+        <li>کلاس آنلاین فردا ساعت ۱۸ برگزار می‌شود.</li>
+        <li>پرداخت قسط جدید فعال شد.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<script>
+function logout() {
+  localStorage.clear();
+  window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>
