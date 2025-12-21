@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>مهر سلیمان | پلتفرم خدمات آموزشی</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="پلتفرم ارائه خدمات آموزشی، مهارتی و مشاوره‌ای ویژه فرزندان کارکنان هلدینگ سولیکو">
+  <meta name="description" content="پلتفرم آموزشی و مهارتی ویژه فرزندان کارکنان هلدینگ سولیکو">
 
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/layout.css">
@@ -15,131 +15,121 @@
 <body>
 
 <!-- Header -->
-<header>
+<header class="header-fixed">
   <div class="container nav">
-    <div class="logo">
-      <strong>مهر سلیمان</strong>
-    </div>
+    <div class="logo"><strong>مهر سلیمان</strong></div>
     <nav>
       <ul>
-        <li><a href="index.html">خانه</a></li>
-        <li><a href="services.html">خدمات</a></li>
-        <li><a href="news.html">اخبار</a></li>
-        <li><a href="about.html">درباره ما</a></li>
-        <li><a href="contact.html">تماس با ما</a></li>
+        <li><a href="#services">خدمات</a></li>
+        <li><a href="#about">درباره</a></li>
+        <li><a href="#why-us">چرا ما</a></li>
+        <li><a href="#news">اخبار</a></li>
         <li><a href="login.html" class="btn btn-primary">ورود</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<!-- Hero -->
+<!-- Hero / Banner -->
 <section class="hero">
   <div class="container hero-content">
-    <div>
-      <h1>آموزش با کیفیت، دسترس‌پذیر برای همه</h1>
-      <p>
-        مهر سلیمان بستری برای ارائه خدمات آموزشی، مهارتی و مشاوره‌ای
-        با قیمت مناسب و شرایط پرداخت ویژه فرزندان کارکنان هلدینگ سولیکو است.
-      </p>
-      <a href="register.html" class="btn btn-primary">ثبت‌نام در سامانه</a>
+    <div class="hero-text">
+      <h1>آموزش با کیفیت، در دسترس برای همه</h1>
+      <p>سریع، حرفه‌ای و با شرایط پرداخت مناسب برای خانواده‌های کارکنان سولیکو.</p>
+      <a href="register.html" class="btn btn-primary btn-lg">همین حالا ثبت‌نام کن</a>
+    </div>
+    <div class="hero-image">
+      <img src="assets/images/placeholder.png" alt="آموزش آنلاین">
     </div>
   </div>
 </section>
 
-<!-- Features -->
-<section class="features container">
-  <div class="feature-card card">
-    <h3>قیمت‌گذاری منصفانه</h3>
-    <p>ارائه خدمات آموزشی با حداقل هزینه و بیشترین کیفیت</p>
-  </div>
-  <div class="feature-card card">
-    <h3>پرداخت اقساطی</h3>
-    <p>امکان پرداخت مرحله‌ای متناسب با شرایط کارکنان</p>
-  </div>
-  <div class="feature-card card">
-    <h3>کسر از حقوق</h3>
-    <p>سهولت پرداخت با هماهنگی سازمانی</p>
-  </div>
-</section>
-
-<!-- Service Categories -->
-<section class="container">
-  <h2>دسته‌بندی خدمات</h2>
-  <div class="grid">
-    <div class="card">
+<!-- خدمات سریع / دسته‌بندی -->
+<section id="services" class="container section-padding">
+  <h2 class="section-title">دسته‌های خدمات</h2>
+  <div class="grid grid-3 gap-2">
+    <div class="card service-card">
       <h4>آموزشی</h4>
-      <p>دوره‌های درسی و تقویتی</p>
+      <p>دوره‌های آموزشی درسی و تقویتی</p>
     </div>
-    <div class="card">
+    <div class="card service-card">
       <h4>مهارتی</h4>
       <p>مهارت‌های کاربردی و آینده‌محور</p>
     </div>
-    <div class="card">
+    <div class="card service-card">
       <h4>مشاوره‌ای</h4>
       <p>تحصیلی، شغلی و روانشناسی</p>
     </div>
   </div>
 </section>
 
-<!-- Featured Services -->
-<section class="container">
-  <h2>خدمات ویژه</h2>
-  <div class="grid">
+<!-- خدمات ویژه -->
+<section class="container section-padding">
+  <h2 class="section-title">خدمات ویژه</h2>
+  <div class="grid grid-3 gap-2">
     <div class="card">
-      <span class="badge">اقساطی</span>
+      <span class="badge badge-primary">پرطرفدار</span>
       <h4>کلاس آنلاین ریاضی</h4>
       <p>ویژه مقطع متوسطه</p>
     </div>
     <div class="card">
-      <span class="badge">تخفیف ویژه</span>
+      <span class="badge badge-discount">تخفیف ویژه</span>
       <h4>آموزش زبان انگلیسی</h4>
-      <p>از مقدماتی تا پیشرفته</p>
+      <p>سطوح مقدماتی تا پیشرفته</p>
     </div>
     <div class="card">
-      <span class="badge">پرطرفدار</span>
+      <span class="badge badge-install">پرداخت اقساطی</span>
       <h4>مشاوره تحصیلی</h4>
-      <p>برنامه‌ریزی و انتخاب رشته</p>
+      <p>برنامه‌ریزی صحیح</p>
     </div>
   </div>
 </section>
 
-<!-- Why Us -->
-<section class="why-us">
-  <div class="container">
-    <h2>چرا مهر سلیمان؟</h2>
-    <p>
-      این سامانه با نظارت مدیریتی و انتخاب دقیق ارائه‌دهندگان خدمات،
-      بستری امن، شفاف و قابل اعتماد برای خانواده‌ها فراهم می‌کند.
-    </p>
+<!-- Why Us / مزایا -->
+<section id="why-us" class="why-us container section-padding">
+  <h2 class="section-title">چرا مهر سلیمان؟</h2>
+  <div class="grid grid-3 gap-2">
+    <div class="card">
+      <h4>قیمت منصفانه</h4>
+      <p>ارائه خدمات با کمترین هزینه و بهترین کیفیت.</p>
+    </div>
+    <div class="card">
+      <h4>پرداخت آسان</h4>
+      <p>اقساطی، کسر از حقوق و شرایط ویژه کارکنان.</p>
+    </div>
+    <div class="card">
+      <h4>پشتیبانی قابل اعتماد</h4>
+      <p>تیم پشتیبانی حرفه‌ای برای تمام مراحل.</p>
+    </div>
   </div>
 </section>
 
-<!-- News -->
-<section class="container">
-  <h2>اخبار و اطلاعیه‌ها</h2>
-  <div class="grid">
-    <div class="card">
-      <h4>آغاز ثبت‌نام دوره‌های تابستانه</h4>
-      <p>جزئیات ثبت‌نام و زمان‌بندی</p>
+<!-- اخبار -->
+<section id="news" class="container section-padding">
+  <h2 class="section-title">اخبار و اطلاعیه‌ها</h2>
+  <div class="grid grid-2 gap-2">
+    <div class="card news-card">
+      <h4>شروع ثبت‌نام تابستانه</h4>
+      <p>جزئیات دوره‌ها و زمان‌بندی.</p>
     </div>
-    <div class="card">
-      <h4>افزودن خدمات جدید مهارتی</h4>
-      <p>دوره‌های مهارت‌محور جدید اضافه شد</p>
+    <div class="card news-card">
+      <h4>افزودن خدمات جدید</h4>
+      <p>دوره‌های مهارتی جدید افزوده شد.</p>
     </div>
   </div>
+</section>
+
+<!-- CTA ثانویه -->
+<section class="container section-padding cta-secondary">
+  <h2>آماده‌ای برای شروع؟</h2>
+  <a href="register.html" class="btn btn-primary btn-lg">ثبت‌نام کن</a>
 </section>
 
 <!-- Footer -->
-<footer>
+<footer class="footer">
   <div class="container">
-    <div>
-      <strong>مهر سلیمان</strong>
-      <p>پلتفرم خدمات آموزشی ویژه خانواده سولیکو</p>
-    </div>
-    <div>
-      <p>© تمامی حقوق محفوظ است</p>
-    </div>
+    <p>© تمامی حقوق محفوظ است – مهر سلیمان</p>
+    <p>طراحی و توسعه Frontend</p>
   </div>
 </footer>
 
