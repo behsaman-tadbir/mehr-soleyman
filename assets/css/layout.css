@@ -1,1 +1,36 @@
 
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+}
+
+header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+footer {
+  background: #111827;
+  color: #e5e7eb;
+  margin-top: 4rem;
+}
+
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
