@@ -29,14 +29,20 @@
 
 .holding-title {
   position: absolute;
-  right: 20px;
-  font-size: 0.9rem;
-  opacity: 0.9;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
   z-index: 2;
 }
 
 .holding-logo {
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .holding-logo img {
