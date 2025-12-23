@@ -179,12 +179,28 @@ img {
       right: 20px;
       opacity: 0.9;
     }
+.holding-title {
+  position: absolute;
+  right: 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #e5e7eb;
+  opacity: 0.9;
+}
 
-    .holding-logo {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #facc15;
-    }
+.holding-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.holding-logo img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
 
     /* =======================
        HEADER LAYER 2 (Product)
