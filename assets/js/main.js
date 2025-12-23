@@ -1,7 +1,5 @@
-<script>
-  function toggleMenu() {
-    document.getElementById('mobileMenu')
-      .classList.toggle('show');
-  }
-</script>
-
+function toggleMenu() {
+  document
+    .getElementById('mobileMenu')
+    .classList.toggle('show');
+}
