@@ -492,3 +492,81 @@
     font-size: 1.25rem;
   }
 }
+
+-------------------------------------------------------------
+/* ===== Auth Pages ===== */
+.auth-card {
+  max-width: 520px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.auth-title {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #0f172a;
+}
+
+.auth-sub {
+  margin-top: 6px;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.auth-form {
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field span {
+  font-weight: 700;
+  color: #0f172a;
+  font-size: 0.9rem;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  background: #f8fafc;
+  outline: none;
+  font-family: inherit;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: rgba(37, 99, 235, 0.55);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.14);
+}
+
+.auth-note {
+  min-height: 22px;
+  font-weight: 700;
+  color: #b45309;
+}
+
+.auth-links {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+.auth-links .link {
+  font-weight: 900;
+  color: #2563eb;
+}
+-----------------------------------------------------------------------
