@@ -1,3 +1,34 @@
+هدر صفحه اصلی:
+.holding-header {
+  height: 90px;
+  background: radial-gradient(circle at center, #475569 0%, #020617 70%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product-header {
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+ریسپانسیو:
+@media (max-width: 768px) {
+  .search-box {
+    display: none;
+  }
+
+  .category-menu {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+-------------------------------------------------------
+
 .hero {
   display: flex;
   align-items: center;
