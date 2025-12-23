@@ -1,4 +1,7 @@
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("Mehr Soleyman Frontend Loaded");
-});
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu')
+      .classList.toggle('show');
+  }
+</script>
 
