@@ -1,105 +1,463 @@
-/* Home Page */
-.hero {
-  margin: 40px 20px;
-  padding: 60px 30px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #3b82f6, #22c55e);
-  color: #fff;
-  text-align: center;
-}
+/* =========================
+   HOME PAGE STYLES
+   ========================= */
 
-.hero h2 {
-  font-size: 2rem;
-  margin-bottom: 12px;
-}
----------------------------------
-/* ===============================
-   Featured Section (Below Header)
-   =============================== */
-
-.featured-section {
-  margin-top: 24px;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 0 20px;
 }
 
-.featured-container {
-  max-width: 1200px;
-  margin: 0 auto;
+.home-section {
+  padding: 20px 0;
+}
+
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.section-subtitle {
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+/* ===== 1) Ads + Slider ===== */
+.hero-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 20px;
+  grid-template-columns: 2fr 1fr; /* اسلایدر عریض‌تر */
+  gap: 16px;
+  align-items: stretch;
 }
 
-/* -------- Slider -------- */
-.featured-slider {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 24px;
-  min-height: 220px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+.post-slider {
+  position: relative;
+  background: linear-gradient(135deg, #eef2ff, #fce7f3);
+  border-radius: 18px;
+  padding: 18px;
   overflow: hidden;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+  min-height: 260px;
 }
 
-.slider-track {
+.post-slides {
   position: relative;
   height: 100%;
 }
 
-.slide {
+.post-slide {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 0.6s ease;
+  transform: translateY(6px);
+  transition: opacity 500ms ease, transform 500ms ease;
+  padding: 10px 6px;
 }
 
-.slide.active {
+.post-slide.is-active {
   opacity: 1;
+  transform: translateY(0);
 }
 
-.slide h3 {
-  font-size: 1.4rem;
+.post-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.14);
+  color: #4338ca;
+  font-weight: 700;
+  font-size: 0.8rem;
   margin-bottom: 10px;
-  color: #1e40af;
 }
 
-.slide p {
+.post-title {
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.post-desc {
+  color: #334155;
   font-size: 1rem;
-  color: #475569;
+  max-width: 55ch;
+  margin-bottom: 14px;
 }
 
-/* -------- Ads -------- */
-.featured-ads {
+.slider-dots {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.25);
+  cursor: pointer;
+}
+.dot.is-active {
+  background: rgba(15, 23, 42, 0.85);
+}
+
+/* Ads Rubik 2x2 */
+.ads-rubik {
   display: grid;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
 
-.ad-box {
-  background: linear-gradient(135deg, #e0f2fe, #dbeafe);
-  border-radius: 12px;
+.ad-tile {
+  position: relative;
+  border-radius: 16px;
+  padding: 14px;
+  min-height: 124px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #dbeafe, #dcfce7);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+  transition: transform 220ms ease;
+}
+
+.ad-tile:nth-child(2) { background: linear-gradient(135deg, #fce7f3, #fef3c7); }
+.ad-tile:nth-child(3) { background: linear-gradient(135deg, #cffafe, #e0e7ff); }
+.ad-tile:nth-child(4) { background: linear-gradient(135deg, #dcfce7, #e9d5ff); }
+
+.ad-tile:hover { transform: translateY(-3px); }
+
+.ad-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  background: rgba(15, 23, 42, 0.75);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+.ad-title {
+  font-weight: 900;
+  color: #0f172a;
+  font-size: 0.95rem;
+  margin-top: 26px;
+}
+
+.ad-sub {
+  color: #334155;
+  font-size: 0.85rem;
+  margin-top: 6px;
+}
+
+/* ===== 2) Category circles ===== */
+.category-circles {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+}
+
+.circle-card {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: 12px 10px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.06);
+  transition: transform 220ms ease;
+}
+
+.circle-card:hover { transform: translateY(-3px); }
+
+.circle {
+  width: 88px;
+  height: 88px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #e0e7ff);
+  display: grid;
+  place-items: center;
+  border: 2px solid rgba(99, 102, 241, 0.18);
+}
+
+.circle img {
+  width: 76%;
+  height: 76%;
+  object-fit: cover;
+  border-radius: 999px;
+}
+
+.circle-label {
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: #0f172a;
+  text-align: center;
+}
+
+/* ===== 3) Double banners ===== */
+.double-banners {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.banner {
+  border-radius: 18px;
+  min-height: 160px;
+  padding: 18px;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+.banner-a { background: linear-gradient(135deg, #60a5fa, #a7f3d0); }
+.banner-b { background: linear-gradient(135deg, #f472b6, #fde68a); }
+
+.banner-content { color: #0f172a; }
+.banner-kicker { font-weight: 900; opacity: 0.85; }
+.banner-title { font-size: 1.25rem; font-weight: 900; margin-top: 6px; }
+.banner-sub { color: rgba(15, 23, 42, 0.8); margin-top: 6px; }
+
+/* ===== 4/5) Product rails ===== */
+.rail {
+  background: #fff;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.06);
+}
+
+.rail--new {
+  background: linear-gradient(135deg, #ffffff, #f0f9ff);
+}
+
+.rail {
+  display: grid;
+  grid-template-columns: 320px 1fr; /* راست: تیتر، چپ: اسکرول افقی */
+  gap: 16px;
+  align-items: stretch;
+}
+
+.rail-head {
+  border-radius: 16px;
+  padding: 16px;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+
+.rail-head--best {
+  background: linear-gradient(135deg, #e0e7ff, #fce7f3);
+}
+
+.rail-head--new {
+  background: linear-gradient(135deg, #dcfce7, #cffafe);
+}
+
+.rail-title {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #0f172a;
+}
+
+.rail-sub { color: #334155; }
+
+.rail-link {
+  margin-top: 6px;
+  font-weight: 900;
+  color: #2563eb;
+}
+
+.rail-track {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.rail-track::-webkit-scrollbar {
+  height: 10px;
+}
+.rail-track::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.15);
+  border-radius: 999px;
+}
+
+.product-card {
+  min-width: 210px;
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06);
+  scroll-snap-align: start;
+  display: grid;
+  gap: 10px;
+  border: 1px solid rgba(99, 102, 241, 0.10);
+}
+
+.product-card--new {
+  border: 1px solid rgba(34, 197, 94, 0.14);
+  background: linear-gradient(135deg, #ffffff, #f0fdf4);
+}
+
+.product-top {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.product-off {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  font-size: 0.85rem;
-  color: #1e3a8a;
-  min-height: 50px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.18);
+  color: #92400e;
+  font-weight: 900;
+  font-size: 0.8rem;
 }
 
-.ad-box:hover {
-  transform: translateY(-2px);
+.product-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid rgba(15, 23, 42, 0.10);
 }
 
-/* -------- Responsive -------- */
+.product-name {
+  font-weight: 900;
+  color: #0f172a;
+  font-size: 0.95rem;
+}
+
+.product-prices {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.price-new {
+  font-weight: 900;
+  color: #0f172a;
+}
+
+.price-old {
+  color: #64748b;
+  text-decoration: line-through;
+  font-size: 0.9rem;
+}
+
+/* ===== 6) Centers logo rail ===== */
+.section-head--centers {
+  margin-bottom: 12px;
+}
+
+.logo-rail {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 6px 4px 10px;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.logo-chip {
+  min-width: 120px;
+  height: 74px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06);
+  display: grid;
+  place-items: center;
+  scroll-snap-align: start;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.logo-chip img {
+  width: 66px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* ===== 7) About split ===== */
+.home-section--about {
+  padding: 26px 0 34px;
+}
+
+.about-split {
+  background: linear-gradient(135deg, #eef2ff, #dcfce7);
+  border-radius: 18px;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* راست متن، چپ عکس */
+  gap: 16px;
+  align-items: center;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+}
+
+.about-text h2 {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.about-text p {
+  color: #334155;
+  margin-bottom: 14px;
+  max-width: 70ch;
+}
+
+.about-image img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+/* ===== Responsive ===== */
 @media (max-width: 992px) {
-  .featured-container {
+  .hero-grid {
     grid-template-columns: 1fr;
   }
-
-  .featured-ads {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
+  .category-circles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .double-banners {
+    grid-template-columns: 1fr;
+  }
+  .rail {
+    grid-template-columns: 1fr;
+  }
+  .about-split {
+    grid-template-columns: 1fr;
   }
 }
--------------------------------------------------------------
+
+@media (max-width: 560px) {
+  .category-circles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .post-title {
+    font-size: 1.25rem;
+  }
+}

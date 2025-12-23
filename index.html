@@ -5,16 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>سولی لرنو | مهر سلیمان</title>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/pages.css">
+
+  <script src="assets/js/main.js" defer></script>
 </head>
 
 <body>
 
-  <!-- ===== Holding Header ===== -->
+  <!-- =========================
+       HEADER (همان هدر دو‌بخشی تو)
+       ========================= -->
   <div class="holding-header">
     <h1 class="holding-title">طرح مهر سلیمان</h1>
     <div class="holding-logo">
@@ -22,9 +25,7 @@
     </div>
   </div>
 
-  <!-- ===== Product Header ===== -->
   <header class="product-header">
-
     <div class="product-top">
       <div class="product-right">
         <span class="product-title">سولی لرنو</span>
@@ -61,60 +62,321 @@
         <li>کودک و نوجوان</li>
       </ul>
     </nav>
-
   </header>
 
-  <!-- ===== Featured Section ===== -->
-  <section class="featured-section">
-  
-    <div class="featured-container">
-  
-      <!-- Right: Slider -->
-      <div class="featured-slider">
-        <div class="slider-track" id="sliderTrack">
-          <article class="slide active">
-            <h3>کلاس‌های آنلاین ویژه دبستان</h3>
-            <p>آموزش شاد و تعاملی با اساتید منتخب</p>
-          </article>
-  
-          <article class="slide">
-            <h3>آزمون‌های استاندارد متوسطه</h3>
-            <p>تحلیل عملکرد و گزارش پیشرفت</p>
-          </article>
-  
-          <article class="slide">
-            <h3>دوره‌های آمادگی کنکور</h3>
-            <p>برنامه‌ریزی شخصی‌سازی شده</p>
-          </article>
+  <!-- =========================
+       SECTION 1: Ads (Rubik 2x2) + Wide Slider
+       ========================= -->
+  <section class="home-section">
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- Right: Wide Slider (در RTL سمت راست می‌نشیند) -->
+        <div class="post-slider" aria-label="اسلایدر پست‌ها">
+          <div class="post-slides" id="postSlides">
+            <article class="post-slide is-active">
+              <div class="post-kicker">پیشنهاد ویژه</div>
+              <h3 class="post-title">کلاس آنلاین شاد برای دبستان</h3>
+              <p class="post-desc">آموزش تعاملی، تمرین و گزارش پیشرفت—کاملاً مناسب فضای آموزشی.</p>
+              <a class="btn btn-primary" href="services.html">مشاهده دوره‌ها</a>
+            </article>
+
+            <article class="post-slide">
+              <div class="post-kicker">اطلاعیه</div>
+              <h3 class="post-title">ثبت‌نام ترم جدید متوسطه</h3>
+              <p class="post-desc">دوره‌های تقویتی و مهارتی با شرایط اقساطی و کسر از حقوق.</p>
+              <a class="btn btn-outline" href="news.html">جزئیات خبر</a>
+            </article>
+
+            <article class="post-slide">
+              <div class="post-kicker">ویژه کنکور</div>
+              <h3 class="post-title">آمادگی کنکور تا دکتری</h3>
+              <p class="post-desc">برنامه‌ریزی هدفمند، آزمون آنلاین و تحلیل عملکرد.</p>
+              <a class="btn btn-primary" href="services.html">شروع مسیر</a>
+            </article>
+          </div>
+
+          <div class="slider-dots" id="sliderDots" aria-label="نشانگر اسلایدر"></div>
         </div>
+
+        <!-- Left: Rubik Ads (2x2) -->
+        <aside class="ads-rubik" aria-label="تبلیغات">
+          <a class="ad-tile" href="#" title="تبلیغ 1">
+            <span class="ad-badge">Ad</span>
+            <div class="ad-title">تبلیغات ۱</div>
+            <div class="ad-sub">جایگاه برند</div>
+          </a>
+          <a class="ad-tile" href="#" title="تبلیغ 2">
+            <span class="ad-badge">Ad</span>
+            <div class="ad-title">تبلیغات ۲</div>
+            <div class="ad-sub">جایگاه برند</div>
+          </a>
+          <a class="ad-tile" href="#" title="تبلیغ 3">
+            <span class="ad-badge">Ad</span>
+            <div class="ad-title">تبلیغات ۳</div>
+            <div class="ad-sub">جایگاه برند</div>
+          </a>
+          <a class="ad-tile" href="#" title="تبلیغ 4">
+            <span class="ad-badge">Ad</span>
+            <div class="ad-title">تبلیغات ۴</div>
+            <div class="ad-sub">جایگاه برند</div>
+          </a>
+        </aside>
+
       </div>
-  
-      <!-- Left: Ads -->
-      <aside class="featured-ads">
-        <div class="ad-box">تبلیغات ۱</div>
-        <div class="ad-box">تبلیغات ۲</div>
-        <div class="ad-box">تبلیغات ۳</div>
-        <div class="ad-box">تبلیغات ۴</div>
-      </aside>
-  
     </div>
-  
   </section>
 
 
-  <!-- ===== Main Content ===== -->
-  <main class="home">
+  <!-- =========================
+       SECTION 2: Category Circles
+       ========================= -->
+  <section class="home-section">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">دسته‌بندی‌ها</h2>
+        <p class="section-subtitle">سریع وارد مسیر مناسب سن و مقطع شوید.</p>
+      </div>
 
-    <section class="hero">
-      <h2>آموزش شاد، با کیفیت و مقرون‌به‌صرفه</h2>
-      <p>ویژه فرزندان کارکنان هلدینگ سولیکو</p>
-      <a href="services.html" class="btn btn-primary">مشاهده دوره‌ها</a>
-    </section>
+          <div class="category-circles">
+        <a class="circle-card" href="services.html">
+          <div class="circle">
+            <img src="assets/images/placeholder.svg" alt="پیش دبستان و دبستان">
+          </div>
+          <div class="circle-label">پیش دبستان و دبستان</div>
+        </a>
 
-  </main>
+        <a class="circle-card" href="services.html">
+          <div class="circle">
+            <img src="assets/images/placeholder.svg" alt="متوسطه اول">
+          </div>
+          <div class="circle-label">متوسطه اول</div>
+        </a>
 
-  <!-- JS -->
-  <script src="assets/js/main.js" defer></script>
+        <a class="circle-card" href="services.html">
+          <div class="circle">
+            <img src="assets/images/placeholder.svg" alt="متوسطه دوم">
+          </div>
+          <div class="circle-label">متوسطه دوم</div>
+        </a>
+
+        <a class="circle-card" href="services.html">
+          <div class="circle">
+            <img src="assets/images/placeholder.svg" alt="کنکور تا دکتری">
+          </div>
+          <div class="circle-label">کنکور تا دکتری</div>
+        </a>
+
+        <a class="circle-card" href="services.html">
+          <div class="circle">
+            <img src="assets/images/placeholder.svg" alt="کودک و نوجوان">
+          </div>
+          <div class="circle-label">کودک و نوجوان</div>
+        </a>
+
+        <a class="circle-card" href="services.html">
+          <div class="circle">
+            <img src="assets/images/placeholder.svg" alt="سایر">
+          </div>
+          <div class="circle-label">و …</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================
+       SECTION 3: Double Banners
+       ========================= -->
+  <section class="home-section">
+    <div class="container">
+      <div class="double-banners">
+        <a class="banner banner-a" href="#" aria-label="بنر تبلیغاتی ۱">
+          <div class="banner-content">
+            <div class="banner-kicker">پیشنهاد شاد</div>
+            <div class="banner-title">کمپین آموزشی تابستان</div>
+            <div class="banner-sub">ثبت‌نام سریع و آسان</div>
+          </div>
+        </a>
+
+        <a class="banner banner-b" href="#" aria-label="بنر تبلیغاتی ۲">
+          <div class="banner-content">
+            <div class="banner-kicker">ویژه والدین</div>
+            <div class="banner-title">مشاوره تحصیلی و انگیزشی</div>
+            <div class="banner-sub">به‌همراه گزارش پیشرفت</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================
+       SECTION 4: Best Sellers Rail
+       ========================= -->
+  <section class="home-section">
+    <div class="container">
+      <div class="rail">
+        <div class="rail-head rail-head--best">
+          <h2 class="rail-title">پرفروش‌ترین‌ها</h2>
+          <p class="rail-sub">محصولات محبوب کاربران در این ماه</p>
+          <a class="rail-link" href="services.html">مشاهده همه</a>
+        </div>
+
+        <div class="rail-track" tabindex="0" aria-label="لیست افقی پرفروش‌ها">
+          <!-- کارت محصول -->
+          <article class="product-card">
+            <div class="product-top">
+              <span class="product-off">٪ ۳۰</span>
+              <img class="product-logo" src="assets/images/placeholder.svg" alt="لوگوی ارائه‌دهنده">
+            </div>
+            <div class="product-name">کلاس تقویتی ریاضی</div>
+            <div class="product-prices">
+              <span class="price-new">۹۹۰,۰۰۰</span>
+              <span class="price-old">۱,۴۲۰,۰۰۰</span>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-top">
+              <span class="product-off">٪ ۲۰</span>
+              <img class="product-logo" src="assets/images/placeholder.svg" alt="لوگوی ارائه‌دهنده">
+            </div>
+            <div class="product-name">دوره مهارت‌های دیجیتال</div>
+            <div class="product-prices">
+              <span class="price-new">۷۵۰,۰۰۰</span>
+              <span class="price-old">۹۳۰,۰۰۰</span>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-top">
+              <span class="product-off">٪ ۴۰</span>
+              <img class="product-logo" src="assets/images/placeholder.svg" alt="لوگوی ارائه‌دهنده">
+            </div>
+            <div class="product-name">زبان انگلیسی نوجوان</div>
+            <div class="product-prices">
+              <span class="price-new">۶۲۰,۰۰۰</span>
+              <span class="price-old">۱,۰۳۰,۰۰۰</span>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-top">
+              <span class="product-off">٪ ۱۵</span>
+              <img class="product-logo" src="assets/images/placeholder.svg" alt="لوگوی ارائه‌دهنده">
+            </div>
+            <div class="product-name">مشاوره تحصیلی</div>
+            <div class="product-prices">
+              <span class="price-new">۳۹۰,۰۰۰</span>
+              <span class="price-old">۴۶۰,۰۰۰</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================
+       SECTION 5: Newest Rail (Different theme)
+       ========================= -->
+  <section class="home-section">
+    <div class="container">
+      <div class="rail rail--new">
+        <div class="rail-head rail-head--new">
+          <h2 class="rail-title">جدیدترین‌ها</h2>
+          <p class="rail-sub">آخرین محصولات و خدمات اضافه‌شده</p>
+          <a class="rail-link" href="services.html">مشاهده همه</a>
+        </div>
+
+        <div class="rail-track" tabindex="0" aria-label="لیست افقی جدیدترین‌ها">
+          <article class="product-card product-card--new">
+            <div class="product-top">
+              <span class="product-off">٪ ۱۰</span>
+              <img class="product-logo" src="assets/images/placeholder.svg" alt="لوگوی ارائه‌دهنده">
+            </div>
+            <div class="product-name">آزمون آنلاین پایه نهم</div>
+            <div class="product-prices">
+              <span class="price-new">۲۹۰,۰۰۰</span>
+              <span class="price-old">۳۲۰,۰۰۰</span>
+            </div>
+          </article>
+
+          <article class="product-card product-card--new">
+            <div class="product-top">
+              <span class="product-off">٪ ۲۵</span>
+              <img class="product-logo" src="assets/images/placeholder.svg" alt="لوگوی ارائه‌دهنده">
+            </div>
+            <div class="product-name">کلاس آنلاین علوم</div>
+            <div class="product-prices">
+              <span class="price-new">۵۴۰,۰۰۰</span>
+              <span class="price-old">۷۲۰,۰۰۰</span>
+            </div>
+          </article>
+
+          <article class="product-card product-card--new">
+            <div class="product-top">
+              <span class="product-off">٪ ۳۵</span>
+              <img class="product-logo" src="assets/images/placeholder.svg" alt="لوگوی ارائه‌دهنده">
+            </div>
+            <div class="product-name">دوره مهارت سخنوری</div>
+            <div class="product-prices">
+              <span class="price-new">۴۱۰,۰۰۰</span>
+              <span class="price-old">۶۳۰,۰۰۰</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================
+       SECTION 6: Popular Centers (Logo Rail)
+       ========================= -->
+  <section class="home-section">
+    <div class="container">
+      <div class="section-head section-head--centers">
+        <h2 class="section-title">محبوب‌ترین مراکز آموزشی</h2>
+        <p class="section-subtitle">لوگو مراکز را ببینید و سریع انتخاب کنید.</p>
+      </div>
+
+      <div class="logo-rail" tabindex="0" aria-label="لوگو مراکز آموزشی">
+        <div class="logo-chip"><img src="assets/images/placeholder.svg" alt="مرکز ۱"></div>
+        <div class="logo-chip"><img src="assets/images/placeholder.svg" alt="مرکز ۲"></div>
+        <div class="logo-chip"><img src="assets/images/placeholder.svg" alt="مرکز ۳"></div>
+        <div class="logo-chip"><img src="assets/images/placeholder.svg" alt="مرکز ۴"></div>
+        <div class="logo-chip"><img src="assets/images/placeholder.svg" alt="مرکز ۵"></div>
+        <div class="logo-chip"><img src="assets/images/placeholder.svg" alt="مرکز ۶"></div>
+        <div class="logo-chip"><img src="assets/images/placeholder.svg" alt="مرکز ۷"></div>
+        <div class="logo-chip"><img src="assets/images/placeholder.svg" alt="مرکز ۸"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================
+       SECTION 7: About Solico Split
+       ========================= -->
+  <section class="home-section home-section--about">
+    <div class="container">
+      <div class="about-split">
+        <div class="about-text">
+          <h2>درباره هلدینگ سولیکو</h2>
+          <p>
+            مهر سلیمان با هدف ارائه بهترین خدمات آموزشی و مهارتی، با شرایط ویژه برای خانواده کارکنان
+            هلدینگ سولیکو طراحی شده است. تمرکز ما روی تجربه کاربری شاد، دسترسی آسان و کیفیت محتواست.
+          </p>
+          <a class="btn btn-primary" href="about.html">بیشتر بدانید</a>
+        </div>
+
+        <div class="about-image">
+          <img src="assets/images/placeholder.svg" alt="تصویر شرکت سولیکو">
+        </div>
+      </div>
+    </div>
+  </section>
 
 </body>
 </html>
