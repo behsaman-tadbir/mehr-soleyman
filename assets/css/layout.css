@@ -62,11 +62,17 @@
   z-index: 1000;
 }
 
+.product-header .container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .product-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 20px;
+  padding: 12px 0;
 }
 
 .product-right {
@@ -95,7 +101,7 @@
 /* Category Menu */
 .category-menu {
   background: #f1f5f9;
-  padding: 10px 20px;
+  padding: 10px 0;
 }
 
 .category-menu ul {
@@ -113,6 +119,11 @@
 .category-menu li:hover {
   background: #dbeafe;
   color: #2563eb;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  margin: 0;
 }
 
 /* Mobile */
