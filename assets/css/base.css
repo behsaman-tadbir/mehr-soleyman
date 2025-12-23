@@ -191,21 +191,17 @@ img {
 
 .holding-header {
   height: 90px;
-  position: relative;
+  background: radial-gradient(
+    circle at center,
+    #475569 0%,
+    #020617 70%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
-
-  background:
-    radial-gradient(
-      circle at center,
-      #3b82f6 0%,
-      #1e40af 35%,
-      #0a2a66 70%
-    );
-
-  color: #ffffff;
+  position: relative;
 }
+
 
 .holding-logo img {
   height: 48px;
