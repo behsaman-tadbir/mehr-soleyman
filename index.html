@@ -15,64 +15,52 @@
 
 <body>
 
-  <!-- =========================
-       HEADER (همان هدر دو‌بخشی تو)
-       ========================= -->
-  <div class="holding-header">
-    <h1 class="holding-title">طرح مهر سلیمان</h1>
-    <div class="holding-logo">
-      <img src="assets/images/holding-logo.png" alt="لوگوی هلدینگ سولیکو">
-    </div>
-  </div>
-
-  <header class="product-header">
+  <header class="site-header">
     <div class="container">
-      <div class="product-top">
-        <div class="product-right">
-          <span class="product-title">سولی لرنو</span>
-          <div class="search-box">
-            <input type="text" placeholder="جستجوی دوره، کلاس، آزمون...">
-          </div>
-    <div class="product-top">
-      <div class="product-right">
-        <span class="product-title">سولی لرنو</span>
-        <div class="search-box">
-          <input type="text" placeholder="جستجوی دوره، کلاس، آزمون...">
+      <div class="header-top">
+        <div class="brand-area">
+          <div class="brand-logo" aria-hidden="true">ب</div>
+          <div class="brand-name">بسامان تدبیر</div>
+          <form class="header-search" role="search">
+            <div class="search-label">
+              <span class="label-text">جستجو</span>
+              <span class="label-icon" aria-hidden="true">🔍</span>
+            </div>
+            <input type="search" name="q" placeholder="جستجوی دوره، کلاس، آزمون..." aria-label="جستجو">
+          </form>
         </div>
-
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
-
-        <div class="product-left">
-          <span class="cart">🛒</span>
-          <a href="login.html" class="btn btn-login">ورود</a>
-          <a href="register.html" class="btn btn-register">ثبت‌نام</a>
+        <div class="user-actions">
+          <a class="auth-button" href="login.html">ثبت نام / ورود</a>
+          <a class="cart-button" href="#">
+            <span class="cart-icon" aria-hidden="true">🛒</span>
+            <span class="cart-text">سبد خرید</span>
+          </a>
         </div>
+      </div>
+
+      <div class="header-bottom">
+        <nav class="main-nav" aria-label="منوی اصلی">
+          <ul>
+            <li class="nav-item has-dropdown">
+              <button class="nav-link nav-dropdown-toggle" type="button" aria-expanded="false">
+                دسته‌بندی‌ها
+                <span class="chevron" aria-hidden="true">▾</span>
+              </button>
+              <div class="dropdown-menu">
+                <a href="services.html">دبستان و پیش دبستان</a>
+                <a href="services.html">متوسطه اول</a>
+                <a href="services.html">متوسطه دوم</a>
+                <a href="services.html">کنکور تا دکتری</a>
+                <a href="services.html">کلاس‌های آنلاین</a>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">ارتباط با ما</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">درباره ما</a></li>
+            <li class="nav-item"><a class="nav-link" href="services.html">راهنمای خرید</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
-
-    <nav class="category-menu">
-      <div class="container">
-        <ul>
-          <li>پیش دبستان و دبستان</li>
-          <li>متوسطه اول</li>
-          <li>متوسطه دوم</li>
-          <li>کنکور تا دکتری</li>
-          <li>کودک و نوجوان</li>
-        </ul>
-      </div>
-    </nav>
-
-    <nav class="mobile-menu" id="mobileMenu">
-      <div class="container">
-        <ul>
-          <li>پیش دبستان و دبستان</li>
-          <li>متوسطه اول</li>
-          <li>متوسطه دوم</li>
-          <li>کنکور تا دکتری</li>
-          <li>کودک و نوجوان</li>
-        </ul>
-      </div>
-    </nav>
   </header>
 
   <!-- =========================

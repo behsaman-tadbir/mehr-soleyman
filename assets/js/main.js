@@ -1,13 +1,40 @@
-function toggleMenu() {
-  document
-    .getElementById('mobileMenu')
-    .classList.toggle('show');
-}
-
-// =========================
-// Home Post Slider (every 3s)
-// =========================
 document.addEventListener("DOMContentLoaded", () => {
+  // =========================
+  // Header dropdown
+  // =========================
+  const dropdownToggle = document.querySelector(".nav-dropdown-toggle");
+  const dropdownParent = dropdownToggle?.closest(".has-dropdown");
+
+  const closeDropdown = () => {
+    if (!dropdownParent) return;
+    dropdownParent.classList.remove("is-open");
+    dropdownToggle?.setAttribute("aria-expanded", "false");
+  };
+
+  if (dropdownToggle && dropdownParent) {
+    dropdownToggle.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const nowOpen = dropdownParent.classList.toggle("is-open");
+      dropdownToggle.setAttribute("aria-expanded", nowOpen ? "true" : "false");
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!dropdownParent.contains(event.target)) {
+        closeDropdown();
+      }
+    });
+
+    dropdownToggle.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeDropdown();
+        dropdownToggle.focus();
+      }
+    });
+  }
+
+  // =========================
+  // Home Post Slider (every 3s)
+  // =========================
   const slides = Array.from(document.querySelectorAll(".post-slide"));
   const dotsWrap = document.getElementById("sliderDots");
 
