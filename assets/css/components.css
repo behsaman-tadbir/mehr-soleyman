@@ -4,6 +4,14 @@
   font-size: 0.85rem;
   cursor: pointer;
   display: inline-block;
+  font-weight: 800;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  border: none;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12);
 }
 
 .btn-login {
@@ -17,6 +25,13 @@
 }
 
 .btn-primary {
-  background: #f59e0b;
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
   color: #fff;
+  border: 1px solid rgba(251, 191, 36, 0.8);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.16);
 }

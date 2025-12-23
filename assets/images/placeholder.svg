@@ -1,0 +1,12 @@
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder</title>
+  <desc id="desc">Simple gray placeholder tile</desc>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e2e8f0" />
+      <stop offset="100%" stop-color="#cbd5e1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="250" fill="url(#grad)" />
+  <text x="200" y="130" fill="#475569" font-family="Arial, sans-serif" font-size="32" font-weight="700" text-anchor="middle">Placeholder</text>
+</svg>
