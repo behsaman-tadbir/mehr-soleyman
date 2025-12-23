@@ -34,6 +34,9 @@
   transform: translateY(-50%);
   font-size: 1.35rem;
   font-weight: 900;
+  font-size: 1.2rem;
+  font-weight: 800;
+  main
   color: #fff;
   z-index: 2;
 }
