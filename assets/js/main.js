@@ -83,36 +83,62 @@ document.addEventListener("DOMContentLoaded", () => {
     location.href = "dashboard.html";
   }
 
-  function updateHeaderAuthUI() {
-    // اینها اگر در HTML داشته باشی کار می‌کنند (مثل نسخه قبلی):
-    // <div id="authGuest">...</div>
-    // <div id="authUser">...</div>
-    const guest = document.getElementById("authGuest");
-    const user = document.getElementById("authUser");
+  // ✅ این تابع، هم هدر و هم BottomNav را آپدیت می‌کند
+  function updateAuthLinksUI() {
     const session = getSession();
+    const loggedIn = !!(session && session.username);
 
-    if (guest && user) {
-      if (session && session.username) {
-        guest.style.display = "none";
-        user.style.display = "flex";
+    // -------- Desktop Header Auth Button --------
+    const headerAuthLink = document.getElementById("headerAuthLink");
+    const headerAuthText = document.getElementById("headerAuthText");
+
+    if (headerAuthLink && headerAuthText) {
+      if (loggedIn) {
+        headerAuthText.textContent = "داشبورد";
+        headerAuthLink.setAttribute("aria-label", "داشبورد");
+
+        if (session.role === "admin") headerAuthLink.href = "dashboard-admin.html";
+        else if (session.role === "teacher") headerAuthLink.href = "dashboard-teacher.html";
+        else headerAuthLink.href = "dashboard.html";
       } else {
-        guest.style.display = "flex";
-        user.style.display = "none";
+        headerAuthText.textContent = "ثبت‌نام / ورود";
+        headerAuthLink.href = "login.html";
+        headerAuthLink.setAttribute("aria-label", "ثبت‌نام / ورود");
       }
     }
 
-    // اگر دکمه خروج در داشبوردها وجود دارد:
-    const logoutBtn = document.getElementById("logoutBtn");
-    if (logoutBtn && !logoutBtn.__wired) {
-      logoutBtn.__wired = true;
-      logoutBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        clearSession();
-        updateHeaderAuthUI();
-        // برگرد به خانه
-        location.href = "index.html";
-      });
+    // -------- Mobile Bottom Nav Auth --------
+    const bnAuthLink = document.getElementById("bnAuthLink");
+    const bnAuthText = document.getElementById("bnAuthText");
+
+    if (bnAuthLink && bnAuthText) {
+      if (loggedIn) {
+        bnAuthText.textContent = "داشبورد";
+        bnAuthLink.setAttribute("aria-label", "داشبورد");
+
+        if (session.role === "admin") bnAuthLink.href = "dashboard-admin.html";
+        else if (session.role === "teacher") bnAuthLink.href = "dashboard-teacher.html";
+        else bnAuthLink.href = "dashboard.html";
+      } else {
+        bnAuthText.textContent = "ورود";
+        bnAuthLink.href = "login.html";
+        bnAuthLink.setAttribute("aria-label", "ورود");
+      }
     }
+  }
+
+  // اگر دکمه خروج در داشبوردها وجود داشت
+  function wireLogout() {
+    const logoutBtn = document.getElementById("logoutBtn");
+    if (!logoutBtn || logoutBtn.__wired) return;
+
+    logoutBtn.__wired = true;
+    logoutBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      clearSession();
+      updateAuthLinksUI();
+      location.href = "index.html";
+    });
   }
 
   function wireRegisterForm() {
@@ -128,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const password = document.getElementById("regPassword")?.value.trim();
       const phone = document.getElementById("regPhone")?.value.trim();
       const nationalId = document.getElementById("regNationalId")?.value.trim();
-      const role = document.getElementById("regRole")?.value; // فقط student / teacher
+      const role = document.getElementById("regRole")?.value; // student | teacher
 
       if (!username || !password || !phone || !nationalId || !role) {
         if (msg) msg.textContent = "لطفاً همه فیلدها را کامل کنید.";
@@ -167,13 +193,15 @@ document.addEventListener("DOMContentLoaded", () => {
         password,
         phone,
         nationalId,
-        role, // student | teacher
+        role,
         createdAt: Date.now(),
       };
 
       users.push(newUser);
       saveUsers(users);
+
       setSession(newUser);
+      updateAuthLinksUI(); // ✅ بلافاصله UI آپدیت شود
 
       if (msg) msg.style.color = "#166534";
       if (msg) msg.textContent = "ثبت‌نام موفق بود. انتقال...";
@@ -204,6 +232,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // Admin demo login (no register)
       if (username.toLowerCase() === "admin" && password === "110110") {
         setSession({ username: "admin", role: "admin" });
+        updateAuthLinksUI(); // ✅
+
         if (msg) {
           msg.style.color = "#166534";
           msg.textContent = "ورود مدیر سیستم موفق. انتقال...";
@@ -230,6 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       setSession(user);
+      updateAuthLinksUI(); // ✅
 
       if (msg) msg.style.color = "#166534";
       if (msg) msg.textContent = "ورود موفق. انتقال...";
@@ -278,18 +309,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  updateHeaderAuthUI();
-  wireRegisterForm();
-  wireLoginForm();
-  protectDashboard();
-
   // =========================
   // Mobile Bottom Nav + Sheet
   // =========================
   const catsBtn = document.getElementById("bnCatsBtn");
   const catsSheet = document.getElementById("mobileCatsSheet");
-  const authLink = document.getElementById("bnAuthLink");
-  const authText = document.getElementById("bnAuthText");
   const cartBadge = document.getElementById("bnCartBadge");
 
   const openSheet = () => {
@@ -324,26 +348,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Auth text/href in bottom nav
-  if (authLink && authText) {
-    const session = getSession();
-    const loggedIn = !!(session && session.username);
-
-    if (loggedIn) {
-      authText.textContent = "داشبورد";
-      authLink.setAttribute("aria-label", "داشبورد");
-
-      // لینک را براساس نقش تنظیم کن
-      if (session.role === "admin") authLink.href = "dashboard-admin.html";
-      else if (session.role === "teacher") authLink.href = "dashboard-teacher.html";
-      else authLink.href = "dashboard.html";
-    } else {
-      authText.textContent = "ورود";
-      authLink.href = "login.html";
-      authLink.setAttribute("aria-label", "ورود");
-    }
-  }
-
   // Cart badge (Demo)
   try {
     const cart = JSON.parse(localStorage.getItem(STORAGE_CART) || "[]");
@@ -365,81 +369,68 @@ document.addEventListener("DOMContentLoaded", () => {
   // =========================
   const slides = Array.from(document.querySelectorAll(".post-slide"));
   const dotsWrap = document.getElementById("sliderDots");
-  if (!slides.length || !dotsWrap) return;
 
-  // build dots
-  slides.forEach((_, i) => {
-    const d = document.createElement("button");
-    d.className = "dot";
-    d.type = "button";
-    d.setAttribute("aria-label", `اسلاید ${i + 1}`);
-    d.addEventListener("click", () => goTo(i));
-    dotsWrap.appendChild(d);
-  });
+  if (slides.length && dotsWrap) {
+    slides.forEach((_, i) => {
+      const d = document.createElement("button");
+      d.className = "dot";
+      d.type = "button";
+      d.setAttribute("aria-label", `اسلاید ${i + 1}`);
+      d.addEventListener("click", () => goTo(i));
+      dotsWrap.appendChild(d);
+    });
 
-  const dots = Array.from(dotsWrap.querySelectorAll(".dot"));
-  let idx = slides.findIndex((s) => s.classList.contains("is-active"));
-  if (idx < 0) idx = 0;
+    const dots = Array.from(dotsWrap.querySelectorAll(".dot"));
+    let idx = slides.findIndex((s) => s.classList.contains("is-active"));
+    if (idx < 0) idx = 0;
 
-  function render() {
-    slides.forEach((s, i) => s.classList.toggle("is-active", i === idx));
-    dots.forEach((d, i) => d.classList.toggle("is-active", i === idx));
-  }
+    function render() {
+      slides.forEach((s, i) => s.classList.toggle("is-active", i === idx));
+      dots.forEach((d, i) => d.classList.toggle("is-active", i === idx));
+    }
 
-  function goTo(i) {
-    idx = i % slides.length;
-    render();
-    restart();
-  }
-
-  let timer = null;
-  function start() {
-    timer = setInterval(() => {
-      idx = (idx + 1) % slides.length;
+    function goTo(i) {
+      idx = i % slides.length;
       render();
-    }, 3000);
-  }
+      restart();
+    }
 
-  function stop() {
-    if (timer) clearInterval(timer);
-    timer = null;
-  }
+    let timer = null;
+    function start() {
+      timer = setInterval(() => {
+        idx = (idx + 1) % slides.length;
+        render();
+      }, 3000);
+    }
 
-  function restart() {
-    stop();
+    function stop() {
+      if (timer) clearInterval(timer);
+      timer = null;
+    }
+
+    function restart() {
+      stop();
+      start();
+    }
+
+    const slider = document.querySelector(".post-slider");
+    if (slider) {
+      slider.addEventListener("mouseenter", stop);
+      slider.addEventListener("mouseleave", start);
+      slider.addEventListener("focusin", stop);
+      slider.addEventListener("focusout", start);
+    }
+
+    render();
     start();
   }
 
-  const slider = document.querySelector(".post-slider");
-  if (slider) {
-    slider.addEventListener("mouseenter", stop);
-    slider.addEventListener("mouseleave", start);
-    slider.addEventListener("focusin", stop);
-    slider.addEventListener("focusout", start);
-  }
-
-  render();
-  start();
+  // =========================
+  // Init (Order matters)
+  // =========================
+  updateAuthLinksUI();
+  wireLogout();
+  wireRegisterForm();
+  wireLoginForm();
+  protectDashboard();
 });
-function updateHeaderDashboardLink() {
-  const headerAuthLink = document.getElementById("headerAuthLink");
-  const headerAuthText = document.getElementById("headerAuthText");
-  if (!headerAuthLink || !headerAuthText) return;
-
-  const session = getSession();
-  const loggedIn = !!(session && session.username);
-
-  if (loggedIn) {
-    headerAuthText.textContent = "داشبورد";
-    headerAuthLink.setAttribute("aria-label", "داشبورد");
-
-    // هدایت بر اساس نقش
-    if (session.role === "admin") headerAuthLink.href = "dashboard-admin.html";
-    else if (session.role === "teacher") headerAuthLink.href = "dashboard-teacher.html";
-    else headerAuthLink.href = "dashboard.html";
-  } else {
-    headerAuthText.textContent = "ثبت‌نام / ورود";
-    headerAuthLink.href = "login.html";
-    headerAuthLink.setAttribute("aria-label", "ثبت‌نام / ورود");
-  }
-}
