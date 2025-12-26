@@ -101,6 +101,54 @@
 
   </main>
 </div>
+  <!-- ===== Mobile Bottom Navigation (<=768px) ===== -->
+  <nav class="bottom-nav" aria-label="ناوبری پایین">
+    <a class="bn-item" data-nav="home" href="index.html">
+      <span class="bn-ico" aria-hidden="true">🏠</span>
+      <span class="bn-txt">خانه</span>
+    </a>
+  
+    <button class="bn-item" data-nav="cats" type="button" id="bnCats">
+      <span class="bn-ico" aria-hidden="true">🧩</span>
+      <span class="bn-txt">دسته‌بندی</span>
+    </button>
+  
+    <a class="bn-item" data-nav="contact" href="contact.html">
+      <span class="bn-ico" aria-hidden="true">📞</span>
+      <span class="bn-txt">تماس</span>
+    </a>
+  
+    <a class="bn-item" data-nav="cart" href="#">
+      <span class="bn-ico" aria-hidden="true">🛒</span>
+      <span class="bn-txt">سبد</span>
+      <span class="bn-badge" aria-label="تعداد سبد">0</span>
+    </a>
+  
+    <a class="bn-item" data-nav="account" href="login.html" id="bnAccount">
+      <span class="bn-ico" aria-hidden="true">👤</span>
+      <span class="bn-txt" id="bnAccountText">ورود</span>
+    </a>
+  </nav>
+  
+  <!-- ===== Bottom Sheet: Categories ===== -->
+  <div class="bottom-sheet" id="catsSheet" aria-hidden="true">
+    <div class="sheet-backdrop" id="catsBackdrop"></div>
+  
+    <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="دسته‌بندی‌ها">
+      <div class="sheet-head">
+        <div class="sheet-title">دسته‌بندی‌ها</div>
+        <button class="sheet-close" type="button" id="catsClose" aria-label="بستن">✕</button>
+      </div>
+  
+      <div class="sheet-body">
+        <a class="sheet-link" href="services.html">دبستان و پیش دبستان</a>
+        <a class="sheet-link" href="services.html">متوسطه اول</a>
+        <a class="sheet-link" href="services.html">متوسطه دوم</a>
+        <a class="sheet-link" href="services.html">کنکور تا دکتری</a>
+        <a class="sheet-link" href="services.html">کلاس‌های آنلاین</a>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
