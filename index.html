@@ -403,6 +403,59 @@
       </div>
     </div>
   </section>
+  <!-- =========================
+       MOBILE BOTTOM NAV (<=768px)
+       ========================= -->
+  <nav class="bottom-nav" aria-label="نوار ابزار موبایل">
+    <a class="bn-item is-active" href="index.html" aria-label="خانه">
+      <span class="bn-ico" aria-hidden="true">🏠</span>
+      <span class="bn-txt">خانه</span>
+    </a>
+
+    <button class="bn-item" type="button" id="bnCatsBtn" aria-label="دسته‌بندی‌ها" aria-expanded="false">
+      <span class="bn-ico" aria-hidden="true">🗂️</span>
+      <span class="bn-txt">دسته‌ها</span>
+    </button>
+
+    <a class="bn-item" href="#" aria-label="سبد خرید">
+      <span class="bn-ico" aria-hidden="true">🛒</span>
+      <span class="bn-txt">سبد</span>
+      <span class="bn-badge" id="bnCartBadge" aria-label="تعداد آیتم‌های سبد" hidden>0</span>
+    </a>
+
+    <a class="bn-item" href="contact.html" aria-label="ارتباط با ما">
+      <span class="bn-ico" aria-hidden="true">☎️</span>
+      <span class="bn-txt">ارتباط</span>
+    </a>
+
+    <a class="bn-item" id="bnAuthLink" href="login.html" aria-label="ورود">
+      <span class="bn-ico" aria-hidden="true">👤</span>
+      <span class="bn-txt" id="bnAuthText">ورود</span>
+    </a>
+  </nav>
+
+  <!-- =========================
+       MOBILE CATEGORIES SHEET
+       ========================= -->
+  <div class="bottom-sheet" id="mobileCatsSheet" aria-hidden="true">
+    <div class="sheet-backdrop" data-sheet-close></div>
+
+    <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="دسته‌بندی‌ها">
+      <div class="sheet-head">
+        <div class="sheet-title">دسته‌بندی‌ها</div>
+        <button class="sheet-close" type="button" aria-label="بستن" data-sheet-close>✕</button>
+      </div>
+
+      <div class="sheet-body">
+        <a class="sheet-link" href="services.html">پیش دبستان و دبستان</a>
+        <a class="sheet-link" href="services.html">متوسطه اول</a>
+        <a class="sheet-link" href="services.html">متوسطه دوم</a>
+        <a class="sheet-link" href="services.html">کنکور تا دکتری</a>
+        <a class="sheet-link" href="services.html">کودک و نوجوان</a>
+        <a class="sheet-link" href="services.html">و …</a>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
