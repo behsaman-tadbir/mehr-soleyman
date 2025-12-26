@@ -32,9 +32,7 @@
 .brand-area {
   display: flex;
   align-items: center;
-  gap: 12x;
-  flex: 1;
-  min-width: 0;
+  gap: 16x;
 }
 
 .brand-logo {
