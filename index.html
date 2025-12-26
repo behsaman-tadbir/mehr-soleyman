@@ -15,46 +15,28 @@
 
 <body>
 
-  <header class="site-header">
-    <div class="container">
-      <div class="header-top">
-        <div class="brand-search">
-          <div class="brand-area">
-            <div class="brand-logo">ب</div>
-            <div class="brand-name">بسامان تدبیر</div>
+<header class="site-header">
+  <div class="container">
+    <div class="header-top">
+
+      <div class="brand-area">
+        <!-- Row 1: Brand -->
+        <div class="brand-box">
+          <div class="brand-logo" aria-hidden="true">ب</div>
+          <div class="brand-name">بسامان تدبیر</div>
+        </div>
+
+        <!-- Row 1: Search -->
+        <form class="header-search" role="search">
+          <div class="search-label">
+            <span class="label-text">جستجو</span>
+            <span class="label-icon" aria-hidden="true">🔍</span>
           </div>
-          <form class="header-search" role="search">
-            <div class="search-label">
-              <span class="label-text">جستجو</span>
-              <span class="label-icon" aria-hidden="true">🔍</span>
-            </div>
-            <input type="search" name="q" placeholder="جستجوی دوره، کلاس، آزمون..." aria-label="جستجو">
-          </form>
-            </div>
-      <div class="user-actions">
-        <!-- Guest -->
-        <div id="authGuest" style="display:flex; gap:10px; align-items:center;">
-          <a class="auth-button" href="login.html">ثبت نام / ورود</a>
-        </div>
-      </div>
+          <input type="search" name="q" placeholder="جستجوی دوره، کلاس، آزمون..." aria-label="جستجو">
+        </form>
 
-        <!-- Logged-in -->
-        <div id="authUser" style="display:none; gap:10px; align-items:center;">
-          <a class="auth-button" href="dashboard.html">داشبورد</a>
-          <button class="cart-button" type="button" id="logoutBtn" style="cursor:pointer;">
-            خروج
-          </button>
-        </div>
-      
-        <a class="cart-button" href="#">
-          <span class="cart-icon" aria-hidden="true">🛒</span>
-          <span class="cart-text">سبد خرید</span>
-        </a>
-      </div>
-
-
-      <div class="header-bottom">
-        <nav class="main-nav" aria-label="منوی اصلی">
+        <!-- Row 2: Nav (زیر جستجو) -->
+        <nav class="header-nav" aria-label="منوی اصلی">
           <ul>
             <li class="nav-item has-dropdown">
               <button class="nav-link nav-dropdown-toggle" type="button" aria-expanded="false">
@@ -69,14 +51,27 @@
                 <a href="services.html">کلاس‌های آنلاین</a>
               </div>
             </li>
+
             <li class="nav-item"><a class="nav-link" href="contact.html">ارتباط با ما</a></li>
             <li class="nav-item"><a class="nav-link" href="about.html">درباره ما</a></li>
             <li class="nav-item"><a class="nav-link" href="services.html">راهنمای خرید</a></li>
           </ul>
         </nav>
       </div>
+
+      <!-- Actions (دسکتاپ) -->
+      <div class="user-actions">
+        <a class="auth-button" href="login.html">ثبت نام / ورود</a>
+        <a class="cart-button" href="#">
+          <span class="cart-icon" aria-hidden="true">🛒</span>
+          <span class="cart-text">سبد خرید</span>
+        </a>
+      </div>
+
     </div>
-  </header>
+  </div>
+</header>
+
 
   <!-- =========================
        SECTION 1: Ads (Rubik 2x2) + Wide Slider
