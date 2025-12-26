@@ -242,3 +242,83 @@ document.addEventListener("DOMContentLoaded", () => {
   render();
   start();
 });
+
+
+
+---------------------------------------------------------
+    // =========================
+  // Mobile Bottom Nav + Sheet
+  // =========================
+  const catsBtn = document.getElementById("bnCatsBtn");
+  const catsSheet = document.getElementById("mobileCatsSheet");
+  const authLink = document.getElementById("bnAuthLink");
+  const authText = document.getElementById("bnAuthText");
+  const cartBadge = document.getElementById("bnCartBadge");
+
+  const openSheet = () => {
+    if (!catsSheet || !catsBtn) return;
+    catsSheet.classList.add("is-open");
+    catsSheet.setAttribute("aria-hidden", "false");
+    catsBtn.setAttribute("aria-expanded", "true");
+    document.documentElement.style.overflow = "hidden";
+  };
+
+  const closeSheet = () => {
+    if (!catsSheet || !catsBtn) return;
+    catsSheet.classList.remove("is-open");
+    catsSheet.setAttribute("aria-hidden", "true");
+    catsBtn.setAttribute("aria-expanded", "false");
+    document.documentElement.style.overflow = "";
+  };
+
+  if (catsBtn && catsSheet) {
+    catsBtn.addEventListener("click", () => {
+      const isOpen = catsSheet.classList.contains("is-open");
+      isOpen ? closeSheet() : openSheet();
+    });
+
+    catsSheet.addEventListener("click", (e) => {
+      const target = e.target;
+      if (target && target.matches("[data-sheet-close]")) closeSheet();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeSheet();
+    });
+  }
+
+  // =========================
+  // Auth UI switch (Guest vs Logged-in)
+  // NOTE: در MVP فعلاً session را از localStorage می‌خوانیم.
+  // later: به Sheets وصل می‌کنیم
+  // =========================
+  const isLoggedIn = !!localStorage.getItem("bs_session"); // "1" مثلا
+  if (authLink && authText) {
+    if (isLoggedIn) {
+      authLink.href = "dashboard.html"; // بعداً: dashboard-user.html / dashboard-admin.html
+      authText.textContent = "داشبورد";
+      authLink.setAttribute("aria-label", "داشبورد");
+    } else {
+      authLink.href = "login.html";
+      authText.textContent = "ورود";
+      authLink.setAttribute("aria-label", "ورود");
+    }
+  }
+
+  // =========================
+  // Cart badge (Demo)
+  // =========================
+  try {
+    const cart = JSON.parse(localStorage.getItem("bs_cart") || "[]");
+    const count = Array.isArray(cart) ? cart.length : 0;
+    if (cartBadge) {
+      if (count > 0) {
+        cartBadge.hidden = false;
+        cartBadge.textContent = String(count);
+      } else {
+        cartBadge.hidden = true;
+      }
+    }
+  } catch (_) {
+    if (cartBadge) cartBadge.hidden = true;
+  }
