@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>داشبورد دبیر | به‌سایار</title>
+
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+
+  <script src="assets/js/main.js" defer></script>
+</head>
+
+<body class="dashboard-body">
+  <div class="dashboard">
+
+    <aside class="sidebar">
+      <div class="sidebar-logo">به‌سایار</div>
+      <ul class="sidebar-menu">
+        <li class="active">داشبورد دبیر</li>
+        <li>کلاس‌های من</li>
+        <li>تکالیف</li>
+        <li>آزمون‌ها</li>
+        <li>گزارش پیشرفت</li>
+        <li>پیام‌ها</li>
+        <li><a href="index.html" style="color:inherit;text-decoration:none;">بازگشت به سایت</a></li>
+        <li><a href="#" id="logoutBtn" style="color:inherit;text-decoration:none;">خروج</a></li>
+      </ul>
+    </aside>
+
+    <main class="dashboard-main">
+
+      <header class="dashboard-header">
+        <div>
+          <h1>سلام، دبیر گرامی</h1>
+          <span class="subtitle">مدیریت کلاس‌ها، تکالیف و آزمون‌ها</span>
+        </div>
+        <div class="header-actions">
+          <span class="notification">🔔 ۲</span>
+          <span class="user-avatar">👤</span>
+        </div>
+      </header>
+
+      <section class="stats">
+        <div class="stat-card">
+          <h3>کلاس‌های فعال</h3>
+          <span>3</span>
+        </div>
+        <div class="stat-card">
+          <h3>تکالیف باز</h3>
+          <span>5</span>
+        </div>
+        <div class="stat-card">
+          <h3>آزمون‌های در انتظار</h3>
+          <span>1</span>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>کلاس‌های امروز</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>کلاس</th>
+              <th>ساعت</th>
+              <th>وضعیت</th>
+              <th>ورود</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ریاضی پایه هشتم</td>
+              <td>۱۸:۰۰</td>
+              <td><span class="badge success">برگزار می‌شود</span></td>
+              <td><button class="btn-sm">ورود</button></td>
+            </tr>
+            <tr>
+              <td>علوم پایه نهم</td>
+              <td>۱۹:۳۰</td>
+              <td><span class="badge warning">در انتظار</span></td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="panel">
+        <h2>پیام‌های جدید</h2>
+        <ul class="notifications">
+          <li>۳ پاسخ جدید برای تکلیف «توان‌ها» ثبت شد.</li>
+          <li>۱ درخواست والدین برای جلسه مشاوره دریافت شد.</li>
+        </ul>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>
