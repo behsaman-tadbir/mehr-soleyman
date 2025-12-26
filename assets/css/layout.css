@@ -1,4 +1,12 @@
-/* ================= HEADER ================= */
+/* =========================
+   LAYOUT.CSS (Final)
+   - Header (Desktop Grid)
+   - Mobile Minimal Header
+   - Dropdown
+   - Mobile Bottom Nav + Bottom Sheet
+   ========================= */
+
+/* ================= HEADER (Base) ================= */
 .site-header {
   background: #fff;
   border-bottom: 1px solid #e2e8f0;
@@ -9,27 +17,36 @@
 }
 
 .site-header .container {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
   padding: 14px 0;
 }
 
+/* ================= HEADER (Desktop Layout) ================= */
 .header-top {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
-  flex-wrap: wrap;
 }
 
+/* brand-area تبدیل به Grid برای اینکه منو زیر جستجو بیاید */
 .brand-area {
+  flex: 1;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "brand search"
+    "nav   nav";
+  gap: 12px 14px;
+  align-items: start;
+}
+
+/* Row 1: Brand */
+.brand-box {
+  grid-area: brand;
   display: flex;
   align-items: center;
   gap: 12px;
-  flex: 1;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  min-width: 220px;
 }
 
 .brand-logo {
@@ -47,12 +64,15 @@
 }
 
 .brand-name {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 900;
   color: #0f172a;
+  line-height: 1.3;
 }
 
+/* Row 1: Search */
 .header-search {
+  grid-area: search;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -60,9 +80,8 @@
   border: 1px solid #dbeafe;
   border-radius: 14px;
   background: #f8fafc;
-  min-width: min(100%, 360px);
-  max-width: 520px;
-  flex: 1;
+  width: 100%;
+  max-width: 620px;
 }
 
 .header-search .search-label {
@@ -93,62 +112,19 @@
   color: #94a3b8;
 }
 
-.user-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+/* Row 2: Nav (زیر جستجو) */
+.header-nav {
+  grid-area: nav;
 }
 
-.auth-button,
-.cart-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px 14px;
-  border-radius: 12px;
-  font-weight: 800;
-  text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-}
-
-.auth-button {
-  background: #2563eb;
-  color: #fff;
-  border: 1px solid #2563eb;
-  min-width: 140px;
-  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.22);
-}
-
-.auth-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 16px 32px rgba(37, 99, 235, 0.28);
-}
-
-.cart-button {
-  background: #fff;
-  color: #0f172a;
-  border: 1px solid #cbd5e1;
-  min-width: 120px;
-}
-
-.cart-button:hover {
-  border-color: #2563eb;
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
-}
-
-.header-bottom {
-  border-top: 1px solid #e2e8f0;
-  padding-top: 4px;
-}
-
-.main-nav ul {
+.header-nav ul {
   list-style: none;
   display: flex;
   align-items: center;
   gap: 8px;
   margin: 0;
   padding: 0;
+  flex-wrap: wrap;
 }
 
 .nav-item {
@@ -174,6 +150,7 @@
   color: #0f172a;
 }
 
+/* Dropdown toggle look */
 .nav-dropdown-toggle {
   background: #2563eb;
   color: #fff;
@@ -185,6 +162,7 @@
   font-size: 0.8rem;
 }
 
+/* Dropdown menu */
 .has-dropdown .dropdown-menu {
   position: absolute;
   right: 0;
@@ -220,9 +198,76 @@
   background: #e2e8f0;
 }
 
+/* Right side actions (Desktop) */
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.auth-button,
+.cart-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.auth-button {
+  background: #2563eb;
+  color: #fff;
+  border: 1px solid #2563eb;
+  min-width: 140px;
+  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.22);
+}
+
+.auth-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 32px rgba(37, 99, 235, 0.28);
+}
+
+.cart-button {
+  background: #fff;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+  min-width: 120px;
+}
+
+.cart-button:hover {
+  border-color: #2563eb;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+/* =========================
+   MOBILE: Minimal Header
+   + Bottom Nav controls nav/actions
+   ========================= */
+
+.bottom-nav {
+  display: none;
+}
+.bottom-sheet {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .site-header .container {
     padding: 12px 0;
+  }
+
+  /* در موبایل منو و اکشن‌ها از بالا حذف می‌شوند */
+  .header-nav {
+    display: none;
+  }
+
+  .user-actions {
+    display: none;
   }
 
   .header-top {
@@ -230,58 +275,23 @@
     align-items: stretch;
   }
 
+  /* تبدیل Grid به حالت تک ستونه */
   .brand-area {
-    justify-content: flex-start;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "brand"
+      "search";
   }
 
-  .header-search {
-    width: 100%;
+  .brand-box {
     min-width: 0;
   }
 
-  .main-nav ul {
-    flex-wrap: wrap;
-    gap: 10px;
+  .header-search {
+    max-width: 100%;
   }
 
-  .nav-link {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .nav-item {
-    width: 100%;
-  }
-
-  .has-dropdown .dropdown-menu {
-    position: static;
-    width: 100%;
-  }
-}
-
-
-/* =========================
-   MOBILE BOTTOM NAV (<=768px)
-   ========================= */
-.bottom-nav {
-  display: none;
-}
-
-.bottom-sheet {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  /* هدر موبایل مینیمال: منو/سبد/ورود از بالا حذف می‌شود */
-  .site-header .header-bottom {
-    display: none;
-  }
-
-  .site-header .user-actions {
-    display: none;
-  }
-
-  /* جای نفس برای Bottom Nav (برای اینکه روی محتوا نیفتد) */
+  /* جا برای Bottom Nav */
   body {
     padding-bottom: 78px;
   }
@@ -307,7 +317,7 @@
     backdrop-filter: blur(10px);
   }
 
-  /* Safe-area برای آیفون */
+  /* Safe-area iPhone */
   @supports (padding: max(0px)) {
     .bottom-nav {
       bottom: max(12px, env(safe-area-inset-bottom));
@@ -467,5 +477,22 @@
 
   .sheet-link:active {
     transform: scale(0.99);
+  }
+}
+
+/* =========================
+   Desktop small screens (optional)
+   ========================= */
+@media (max-width: 992px) and (min-width: 769px) {
+  .brand-area {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "brand"
+      "search"
+      "nav";
+  }
+
+  .header-search {
+    max-width: 100%;
   }
 }
